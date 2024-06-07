@@ -8,6 +8,7 @@ screen = pygame.display.set_mode((400, 400))
 pygame.display.set_caption('Two Player Parking Game')
 clock = pygame.time.Clock()
 test_font = pygame.font.Font(None, 45)
+test_font_2 = pygame.font.Font(None,100)
 
 
 def rotate_image(image, angle, pos):
@@ -63,11 +64,10 @@ blue_car_rect = blue_car.get_rect(center=(200, 300))
 blue_car_mask = pygame.mask.from_surface(blue_car)
 
 
-text_surface = test_font.render('2 Player Parking Game', False, 'Black')
 blue_win_surface = test_font.render('Blue Wins', False, 'Green')
 pink_win_surface = test_font.render('Pink Wins', False, 'Green')
 both_win_surface = test_font.render('Double Win', False, 'Green')
-lose_surface = test_font.render('You Lose', False, 'Red')
+lose_surface = test_font_2.render('You Lose', False, (252, 3, 248))
 
 
 pink_car_pos = [20, 360]
@@ -145,26 +145,24 @@ while running:
 
 
     if pink_car_mask.overlap(sidewalk_1_mask, (sidewalk_1_pos[0] - pink_car_pos[0], sidewalk_1_pos[1] - pink_car_pos[1])):
-        screen.blit(lose_surface, (230, 100))
+        screen.blit(lose_surface, (70, 70))
         stop_game()
     elif blue_car_mask.overlap(sidewalk_1_mask, (sidewalk_1_pos[0] - blue_car_pos[0], sidewalk_1_pos[1] - blue_car_pos[1])):
-        screen.blit(lose_surface, (230, 100))
+        screen.blit(lose_surface, (70, 70))
         stop_game()
     elif pink_car_mask.overlap(sidewalk_2_mask, (sidewalk_2_pos[0] - pink_car_pos[0], sidewalk_2_pos[1] - pink_car_pos[1])):
-        screen.blit(lose_surface, (230, 100))
+        screen.blit(lose_surface, (70, 70))
         stop_game()
     elif blue_car_mask.overlap(sidewalk_2_mask, (sidewalk_2_pos[0] - blue_car_pos[0], sidewalk_2_pos[1] - blue_car_pos[1])):
-        screen.blit(lose_surface, (230, 100))
+        screen.blit(lose_surface, (70, 70))
         stop_game()
     elif pink_car_mask.overlap(sidewalk_3_mask, (sidewalk_3_pos[0] - pink_car_pos[0], sidewalk_3_pos[1] - pink_car_pos[1])):
-        screen.blit(lose_surface, (230, 100))
+        screen.blit(lose_surface, (70, 70))
         stop_game()
     elif blue_car_mask.overlap(sidewalk_3_mask, (sidewalk_3_pos[0] - blue_car_pos[0], sidewalk_3_pos[1] - blue_car_pos[1])):
-        screen.blit(lose_surface, (230, 100))
+        screen.blit(lose_surface, (70, 70))
         stop_game()
 
-
-    screen.blit(text_surface, (10, 10))
 
 
     pygame.display.update()
